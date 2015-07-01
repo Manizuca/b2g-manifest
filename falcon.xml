@@ -1,0 +1,175 @@
+<?xml version="1.0" ?>
+<manifest>
+
+  <remote  name="aosp"
+           fetch="https://android.googlesource.com"
+           review="android-review.googlesource.com"/>
+
+
+  <remote  name="omnirom"
+           review="gerrit.omnirom.org"
+           fetch="https://github.com/omnirom"/>
+
+  <remote  name="Manizuca"
+           fetch="https://github.com/Manizuca" />
+
+  <remote  name="gerrit"
+           fetch="https://gerrit.omnirom.org" />
+
+  <remote fetch="git://github.com/mozilla-b2g/" name="b2g"/>
+  <remote fetch="git://github.com/mozilla/" name="mozilla"/>
+  <remote fetch="git://github.com/apitrace/" name="apitrace"/>
+  <remote fetch="git://codeaurora.org/" name="caf"/>
+  <remote fetch="https://git.mozilla.org/releases" name="mozillaorg"/>
+
+  <default revision="refs/tags/android-4.4.4_r1"
+           remote="aosp"
+           sync-c="true"
+           sync-j="4"/>
+
+  <!-- B2G specific things. -->
+  <project name="platform_build" path="build" remote="Manizuca" revision="android-4.4-b2g" groups="pdk" >
+    <copyfile dest="Makefile" src="core/root.mk"/>
+  </project>
+  <project name="gaia" path="gaia" remote="mozillaorg" revision="v2.2"/>
+  <project name="gecko" path="gecko" remote="mozillaorg" revision="v2.2"/>
+  <project name="fake-libdvm" path="dalvik" remote="b2g" revision="v2.2"/>
+  <project name="gonk-misc" path="gonk-misc" remote="b2g" revision="v2.2"/>
+  <project name="librecovery" path="librecovery" remote="b2g" revision="v2.2"/>
+  <project name="moztt" path="external/moztt" remote="b2g" revision="v2.2"/>
+  <project name="rilproxy" path="rilproxy" remote="b2g" revision="v2.2"/>
+  <project name="valgrind" path="external/valgrind" remote="b2g" revision="v2.2"/>
+  <project name="vex" path="external/VEX" remote="b2g" revision="v2.2"/>
+  <project name="apitrace" path="external/apitrace" remote="apitrace" revision="34ea6163f9f0e0122fb0bb03607eccdca31ced7a"/>
+
+  <!-- Stock Android things -->
+  <project groups="pdk,darwin,arm" name="platform/prebuilts/gcc/darwin-x86/arm/arm-eabi-4.7" path="prebuilts/gcc/darwin-x86/arm/arm-eabi-4.7"/>
+  <project groups="pdk,darwin,arm" name="platform/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.7" path="prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.7"/>
+  <project groups="pdk,darwin" name="platform/prebuilts/gcc/darwin-x86/host/headers" path="prebuilts/gcc/darwin-x86/host/headers"/>
+  <project groups="pdk,darwin" name="platform/prebuilts/gcc/darwin-x86/host/i686-apple-darwin-4.2.1" path="prebuilts/gcc/darwin-x86/host/i686-apple-darwin-4.2.1"/>
+  <project groups="pdk,darwin,x86" name="platform/prebuilts/gcc/darwin-x86/x86/i686-linux-android-4.7" path="prebuilts/gcc/darwin-x86/x86/i686-linux-android-4.7"/>
+  <project groups="darwin" name="platform/prebuilts/python/darwin-x86/2.7.5" path="prebuilts/python/darwin-x86/2.7.5"/>
+  <project groups="pdk,linux" name="platform/prebuilts/gcc/linux-x86/host/i686-linux-glibc2.7-4.6" path="prebuilts/gcc/linux-x86/host/i686-linux-glibc2.7-4.6"/>
+  <project groups="pdk,linux" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.7-4.6" path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.7-4.6"/>
+  <project groups="pdk,linux,arm" name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.7"/>
+  <project groups="pdk,linux,arm" name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7"/>
+  <project groups="pdk,linux,x86" name="platform/prebuilts/gcc/linux-x86/x86/i686-linux-android-4.7" path="prebuilts/gcc/linux-x86/x86/i686-linux-android-4.7"/>
+  <project groups="linux,x86" name="platform/prebuilts/python/linux-x86/2.7.5" path="prebuilts/python/linux-x86/2.7.5"/>
+  <project name="device/common" path="device/common"/>
+  <project name="device/sample" path="device/sample" groups="pdk"/>
+  <project name="platform/abi/cpp" path="abi/cpp" groups="pdk"/>
+  <project name="android_bionic" path="bionic" remote="omnirom" revision="android-4.4"/>
+  <project name="android_bootable_recovery" path="bootable/recovery" remote="omnirom" revision="android-4.4"/>
+  <project name="platform/external/aac" path="external/aac" groups="pdk"/>
+  <project name="platform/external/bison" path="external/bison" groups="pdk"/>
+  <project name="android_external_bluetooth_bluedroid" path="external/bluetooth/bluedroid" remote="omnirom" revision="android-4.4"/>
+  <project name="platform/external/bsdiff" path="external/bsdiff" groups="pdk"/>
+  <project name="android_external_busybox" path="external/busybox" remote="omnirom" revision="android-4.4"/>
+  <project name="platform/external/bzip2" path="external/bzip2" groups="pdk"/>
+  <project name="platform/external/checkpolicy" path="external/checkpolicy" groups="pdk"/>
+  <project name="platform/external/dhcpcd" path="external/dhcpcd"/>
+  <project name="platform/external/dnsmasq" path="external/dnsmasq" groups="pdk"/>
+  <project name="platform/external/dropbear" path="external/dropbear"/>
+  <project name="android_external_e2fsprogs" path="external/e2fsprogs" remote="omnirom" revision="android-4.4"/>
+  <project name="platform/external/elfutils" path="external/elfutils"/>
+  <project name="android_external_exfat" path="external/exfat" remote="omnirom" revision="android-4.4"/>
+  <project name="platform/external/expat" path="external/expat" groups="pdk"/>
+  <project name="android_external_f2fs-tools" path="external/f2fs-tools" remote="omnirom" revision="android-4.4"/>
+  <project name="platform/external/fdlibm" path="external/fdlibm"/>
+  <project name="android_external_flac" path="external/flac" remote="omnirom" revision="android-4.4"/>
+  <project name="platform/external/freetype" path="external/freetype" groups="pdk"/>
+  <project name="android_external_fuse" path="external/fuse" remote="omnirom" revision="android-4.4"/>
+  <project name="platform/external/gcc-demangle" path="external/gcc-demangle" groups="pdk"/>
+  <project name="platform/external/genext2fs" path="external/genext2fs"/>
+  <project name="platform/external/giflib" path="external/giflib"/>
+  <project name="platform/external/gtest" path="external/gtest" groups="pdk"/>
+  <project name="platform/external/harfbuzz" path="external/harfbuzz"/>
+  <project name="platform/external/harfbuzz_ng" path="external/harfbuzz_ng"/>
+  <project name="platform/external/iproute2" path="external/iproute2" groups="pdk"/>
+  <project name="platform/external/ipsec-tools" path="external/ipsec-tools"/>
+  <project name="platform/external/iptables" path="external/iptables"/>
+  <project name="platform/external/jack" path="external/jack"/>
+  <project name="android_external_jhead" path="external/jhead" remote="omnirom" revision="android-4.4"/>
+  <project name="android_external_jpeg" path="external/jpeg" remote="omnirom" revision="android-4.4"/>
+  <project name="platform/external/junit" path="external/junit"/>
+  <project name="platform/external/libgsm" path="external/libgsm" groups="pdk"/>
+  <project name="platform/external/liblzf" path="external/liblzf" groups="pdk"/>
+  <project name="platform/external/libnfc-nxp" path="external/libnfc-nxp" groups="pdk"/>
+  <project name="platform/external/libnl-headers" path="external/libnl-headers" groups="pdk"/>
+  <project name="platform/external/libogg" path="external/libogg"/>
+  <project name="platform/external/libpcap" path="external/libpcap"/>
+  <project name="platform/external/libpng" path="external/libpng" groups="pdk"/>
+  <project name="platform/external/libselinux" path="external/libselinux" groups="pdk"/>
+  <project name="platform/external/libsepol" path="external/libsepol" groups="pdk"/>
+  <project name="platform/external/libvpx" path="external/libvpx" groups="pdk"/>
+  <project name="platform/external/mdnsresponder" path="external/mdnsresponder" groups="pdk"/>
+  <project name="platform/external/mksh" path="external/mksh" groups="pdk"/>
+  <project name="platform/external/netcat" path="external/netcat"/>
+  <project name="android_external_ntfs-3g" path="external/ntfs-3g" remote="omnirom" revision="android-4.4"/>
+  <project name="android_external_openssl" path="external/openssl" remote="omnirom" revision="android-4.4"/>
+  <project name="platform/external/protobuf" path="external/protobuf" groups="pdk"/>
+  <project name="platform/external/safe-iop" path="external/safe-iop" groups="pdk"/>
+  <project name="platform/external/scrypt" path="external/scrypt" groups="pdk"/>
+  <project name="android_external_sepolicy" path="external/sepolicy" remote="omnirom" revision="android-4.4"/>
+  <project name="platform/external/sfntly" path="external/sfntly"/>
+  <project name="android_external_skia" path="external/skia" remote="omnirom" revision="android-4.4"/>
+  <project name="platform/external/sonivox" path="external/sonivox" groups="pdk"/>
+  <project name="platform/external/speex" path="external/speex" groups="pdk"/>
+  <project name="platform/external/sqlite" path="external/sqlite" groups="pdk"/>
+  <project name="platform/external/stlport" path="external/stlport" groups="pdk"/>
+  <project name="platform/external/strace" path="external/strace"/>
+  <project name="platform/external/svox" path="external/svox"/>
+  <project name="platform/external/tagsoup" path="external/tagsoup"/>
+  <project name="platform/external/tcpdump" path="external/tcpdump"/>
+  <project name="android_external_tinyalsa" path="external/tinyalsa" remote="omnirom" revision="android-4.4"/>
+  <project name="platform/external/tinycompress" path="external/tinycompress" groups="pdk"/>
+  <project name="platform/external/tinyxml" path="external/tinyxml" groups="pdk"/>
+  <project name="platform/external/tinyxml2" path="external/tinyxml2" groups="pdk"/>
+  <project name="platform/external/tremolo" path="external/tremolo" groups="pdk"/>
+  <project name="platform/external/webp" path="external/webp"/>
+  <project name="platform/external/webrtc" path="external/webrtc" groups="pdk"/>
+  <project name="platform/external/yaffs2" path="external/yaffs2" groups="pdk"/>
+  <project name="platform/external/zlib" path="external/zlib" groups="pdk"/>
+  <project name="android_frameworks_base" path="frameworks/base" remote="omnirom" revision="android-4.4"/>
+  <project name="android_frameworks_native" path="frameworks/native" remote="Manizuca" revision="android-4.4"/>
+  <project name="platform/frameworks/opt/emoji" path="frameworks/opt/emoji"/>
+  <project name="platform/frameworks/wilhelm" path="frameworks/wilhelm"/>
+  <project name="android_hardware_libhardware" path="hardware/libhardware" remote="omnirom" revision="android-4.4"/>
+  <project name="android_hardware_libhardware_legacy" path="hardware/libhardware_legacy" remote="omnirom" revision="android-4.4"/>
+  <project name="android_libcore" path="libcore" remote="omnirom" revision="android-4.4"/>
+  <project name="platform/libnativehelper" path="libnativehelper" groups="pdk-java"/>
+  <project name="platform/ndk" path="ndk"/>
+  <project name="platform_prebuilts_misc" path="prebuilts/misc" remote="b2g" revision="b2g-4.4.2_r1" groups="pdk"/>
+  <project name="platform/prebuilts/ndk" path="prebuilts/ndk" groups="pdk"/>
+  <project name="platform_prebuilts_qemu-kernel" path="prebuilts/qemu-kernel" remote="b2g" revision="b2g-4.4.2_r1" groups="pdk"/>
+  <project name="platform/prebuilts/sdk" path="prebuilts/sdk" groups="pdk"/>
+  <project name="platform/prebuilts/tools" path="prebuilts/tools" groups="pdk"/>
+  <project name="platform_system_bluetoothd" path="system/bluetoothd" remote="b2g" revision="v2.2"/>
+  <project name="android_system_extras" path="system/extras" revision="android-4.4"/>
+  <project name="android_system_media" path="system/media" revision="android-4.4" groups="pdk"/>
+  <project name="platform_system_libfdio" path="system/libfdio" remote="b2g" revision="v2.2"/>
+  <project name="android_system_netd" path="system/netd" groups="pdk" remote="omnirom" revision="android-4.4" />
+  <project name="platform/system/security" path="system/security" groups="pdk"/>
+  <project name="android_system_vold" path="system/vold" remote="omnirom" revision="android-4.4" />
+
+  <project name="android_external_icu4c" path="external/icu4c" remote="omnirom" revision="android-4.4"/>
+  <project name="platform_frameworks_av" path="frameworks/av" remote="Manizuca" revision="android-4.4"/>
+  <project name="platform_system_core" path="system/core" remote="Manizuca" revision="android-4.4"/>
+
+  <!-- Moto G specific things -->
+  <project name="device/generic/armv7-a-neon" path="device/generic/armv7-a-neon" groups="pdk"/>
+  <project path="device/qcom/common" name="android_device_qcom_common" remote="omnirom" revision="android-4.4"/>
+  <project path="device/motorola/falcon" name="android_device_motorola_falcon" remote="Manizuca" revision="android-4.4"/>
+  <project path="device/motorola/msm8226-common" name="android_device_motorola_msm8226-common" remote="Manizuca" revision="android-4.4"/>
+  <project path="kernel/motorola/msm8226" name="android_kernel_motorola_msm8226" remote="Manizuca" revision="android-4.4"/>
+  <project name="android_external_wpa_supplicant_8" path="external/wpa_supplicant_8" revision="android-4.4" remote="omnirom" groups="pdk"/>
+  <project name="android_hardware_qcom_audio-caf-bfam" path="hardware/qcom/audio-caf-bfam" remote="omnirom" revision="android-4.4"/>
+  <project name="android_hardware_qcom_bt" path="hardware/qcom/bt" remote="gerrit" revision="refs/changes/09/8009/2"/>
+  <project name="android_hardware_qcom_display-caf-bfam" path="hardware/qcom/display-caf-bfam" remote="omnirom" revision="android-4.4"/>
+  <project name="android_hardware_qcom_keymaster" path="hardware/qcom/keymaster" remote="omnirom" revision="android-4.4" groups="qcom"/>
+  <project name="android_hardware_qcom_media-caf-bfam" path="hardware/qcom/media-caf-bfam" remote="omnirom" revision="android-4.4"/>
+  <project name="android_hardware_qcom_wlan" path="hardware/qcom/wlan" remote="gerrit" revision="refs/changes/91/8691/1"/>
+  <project name="android_hardware_ril" path="hardware/ril" remote="omnirom" revision="android-4.4"/>
+  <project name="android_external_ebtables" path="external/ebtables" remote="Manizuca" revision="android-4.4"/>
+
+</manifest>
