@@ -145,8 +145,8 @@
   <project name="platform/prebuilts/sdk" path="prebuilts/sdk" groups="pdk"/>
   <project name="platform/prebuilts/tools" path="prebuilts/tools" groups="pdk"/>
   <project name="platform_system_bluetoothd" path="system/bluetoothd" remote="b2g" revision="v2.2"/>
-  <project name="android_system_extras" path="system/extras" revision="android-4.4"/>
-  <project name="android_system_media" path="system/media" revision="android-4.4" groups="pdk"/>
+  <project name="android_system_extras" path="system/extras" remote="omnirom" revision="android-4.4"/>
+  <project name="android_system_media" path="system/media" remote="omnirom" revision="android-4.4" groups="pdk"/>
   <project name="platform_system_libfdio" path="system/libfdio" remote="b2g" revision="v2.2"/>
   <project name="android_system_netd" path="system/netd" groups="pdk" remote="omnirom" revision="android-4.4" />
   <project name="platform/system/security" path="system/security" groups="pdk"/>
